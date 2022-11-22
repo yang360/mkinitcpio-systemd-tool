@@ -99,8 +99,8 @@ do_remote_key() {
     local service="initrd-cryptsetup-remote-key.service"
     local cryptdevice=
 
-    for i in $(find $system -type f -name "override.conf" | egrep "^$system/systemd-cryptsetup@.*\.service\.d"); do
-        if egrep -q "^After=$service" $i; then
+    for i in $(find $system -type f -name "override.conf" | grep -F "^$system/systemd-cryptsetup@.*\.service\.d"); do
+        if grep -F -q "^After=$service" $i; then
             cryptdevice=$(echo "$i" | sed 's|/etc/systemd/system/systemd-cryptsetup@\(.*\)\.service\.d/override.conf|\1|')
 
             plain "include remote key dependency for $cryptdevice"
