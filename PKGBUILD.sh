@@ -12,4 +12,4 @@ this_repo=$(dirname "$0")
 cd "$this_repo"
 rm -r -f  pkg/ *.pkg.tar.xz
 makepkg -e
-sudo pacman -U *.pkg.tar.xz --noconfirm
+sudo pacman -U *.pkg.tar.zst --noconfirm
