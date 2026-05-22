@@ -2,7 +2,9 @@
 
 ## mkinitcpio-systemd-tool
 
+<!--
 [![Master Status](https://dev.azure.com/random-archer/mkinitcpio-systemd-tool/_apis/build/status/random-archer.mkinitcpio-systemd-tool?branchName=master)](https://dev.azure.com/random-archer/mkinitcpio-systemd-tool/_build/latest?definitionId=1&branchName=master)
+-->
 
 ### Summary
 
@@ -64,8 +66,8 @@ systemctl enable initrd-sysroot-mount.service
 
 5) build image, review content and finally reboot:
 ```
-mkinitcpio -v -p linux > build.log
-lsinitcpio -l /boot/initramfs-linux.img
+mkinitcpio -v -p linux > /tmp/initrd.log
+lsinitcpio -l /boot/initramfs-linux.img | grep initrd
 systemctl reboot
 ```
 
@@ -148,7 +150,7 @@ how can I provide custom interactive user shell for ssh client
 * change sample shell file located in `/usr/lib/mkinitcpio-systemd-tool/initrd-shell.sh`
 
 which ssh user keys are used by initramfs sshd server(s)?
-* they come from host `/root/.ssh/authorized_keys`
+* they come from host `/etc/mkinitcpio-systemd-tool/config/authorized_keys`
 
 ### Shell Script Questions and Answers
 

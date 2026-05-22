@@ -30,6 +30,7 @@ conflicts=('mkinitcpio-dropbear' 'mkinitcpio-tinyssh')
 backup=("etc/${pkgname}/config/crypttab"
         "etc/${pkgname}/config/fstab"
         "etc/${pkgname}/config/remotekey"
+        "etc/${pkgname}/config/ntp.conf"
         "etc/${pkgname}/config/initrd-nftables.conf"
         "etc/${pkgname}/config/initrd-util-usb-hcd.conf"
         "etc/${pkgname}/network/initrd-network.network" )
